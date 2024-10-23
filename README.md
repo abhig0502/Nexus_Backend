@@ -7,3 +7,4 @@ issues need to be resolved--
 function handler is not working properly
 
 what is the difference between req.query and req.params we can get the data from both of them 
+read about status codes(imp)

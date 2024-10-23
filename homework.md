@@ -19,3 +19,14 @@
 -use of regex in routes /a/, /.*fly$/
 -Reading the query params in the routes
 -Reading the dynamic routes using params 
+
+//middlewares and error handlers
+
+-multiple route handlers-play with the code 
+-next()
+-app.use("/route",rh1,[rh2,rh3],rh4,rh5);    
+this syntax is absolutely fine wrapping any of the response handler or all the response handler inside array is fine .
+-what is a middleware?
+-How expres js basically handles request behind the scenes?
+-write a dummy auth middleware for admin
+-write a dummy auth middleware for all user routes
