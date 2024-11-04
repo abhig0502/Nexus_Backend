@@ -30,3 +30,19 @@ this syntax is absolutely fine wrapping any of the response handler or all the r
 -How expres js basically handles request behind the scenes?
 -write a dummy auth middleware for admin
 -write a dummy auth middleware for all user routes
+
+-Create a free cluster on mongodb official website(mongo Atlas)
+-Install mongoose library
+-Connect your application to the Database "Connection-url"/devTinder
+-Call the connectDB function and connect to the database before starting application on 7777
+-create a schema and usermodel 
+-create POST/ signup API to add data to database
+-push some documents using api calls from postman
+-Error handling using try and catch block
+
+-JS object and json object difference
+-Add the express.json middleware to your app
+-Make your signup API dynamic to recieve data from the end user
+-User.findOne with duplicate email ids,which object returned
+-API-get user by email
+-API-Feed API - GET/feed -get all the users from the database 
