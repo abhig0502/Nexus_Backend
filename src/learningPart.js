@@ -68,6 +68,7 @@
 // //POINTS TO REMEBER
 // //IF THE RESPONSE IS NOT SEND IT WILL THROUGH AN ERROR (EXECUTE THE CODE LINE BY LINE)
 // //IF THE next() IS CALLED AT THE END THEN IT WILL NOT FIND ANY OTHER MIDDLEWARE OR RESPONSE HANDLER -
+// // -IT WILL STUCK IN A LOOP 
 // //AND IT WILL THROUGH ERROR
 
 // //second way of creating the route handlers or middlewares is
@@ -79,7 +80,7 @@
 // // });
 
 // // app.get("/user",(req,res,next)=>{
-// //     console.log("hadling the route user 2");
+// //     console.log("haNdling the route user 2");
 // //     res.send("2nd response");
 // //     // next();
 // // })
