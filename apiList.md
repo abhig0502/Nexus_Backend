@@ -1,13 +1,13 @@
 # DevTinder APIs
 
 ## authRouter
--POST /signup
--POST /login
--POST /logout
+-POST /signup-done 
+-POST /login-done
+-POST /logout-done
 
 ## profileRouter
--GET /profile/view
--PATCH /profile/edit
+-GET /profile/view-done
+-PATCH /profile/edit-done
 -PATCH /profile/password
 
 ## connectionRequestRouter
@@ -17,9 +17,9 @@
 -POST /request/send/rejected/:requestId
 
 ## userRouter
--GET /user/connections
 -GET /user/requests/recieved
+-GET /user/connections
 -GET /user/feed- Gets you the profile of other users on the platform
 
-Status-ignored,interested,accepted,rejected
+Status-ignore,interested,accepted,rejected
 

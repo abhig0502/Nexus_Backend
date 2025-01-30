@@ -7,6 +7,15 @@ const { validateSignUpData } = require("./utils/validation.js");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "http://localhost:5173", // your frontend URL
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"], // allowed methods
+  credentials: true, // allow credentials
+};
+
+app.use(cors(corsOptions));
 
 //converting the json data to the readable code using express.json() function
 app.use(express.json());
@@ -57,7 +66,7 @@ app.use(cookieParser());
 //       //Create JWT Token
 
 //       // const token=await jwt.sign({ _id:user._id},"DEV@Tinder$790",{expiresIn:"1d"});
-//       const token=await user.getJWT();
+// const token=await user.getJWT();
 //       // console.log(token);
 
 //       //Add token to the cookie and send it back to the user
@@ -76,10 +85,12 @@ app.use(cookieParser());
 const authRouter = require("./routes/auth.js");
 const profileRouter = require("./routes/profile.js");
 const requestRouter = require("./routes/request.js");
+const userRouter = require("./routes/user.js");
 
 app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
+app.use("/", userRouter);
 
 // app.get("/profile", userAuth,async (req, res) => {
 

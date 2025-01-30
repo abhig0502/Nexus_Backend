@@ -1,8 +1,8 @@
 const express = require("express");
 const authRouter = express.Router();
 const { validateSignUpData } = require("../utils/validation.js");
-const UserModel=require("../models/user.js");
-const bcrypt=require("bcrypt");
+const UserModel = require("../models/user.js");
+const bcrypt = require("bcrypt");
 
 authRouter.post("/signup", async (req, res) => {
   try {
@@ -20,9 +20,17 @@ authRouter.post("/signup", async (req, res) => {
       emailId,
       password: passwordHash,
     });
-    await user.save();
-    console.log(user);
-    res.send("data has got saved successfully...");
+    const savedUser = await user.save();
+    
+    const token = await savedUser.getJWT();
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 24 * 360000),
+      });
+
+    res.json({
+      message: "data has got saved successfully...",
+      data: savedUser,
+    });
   } catch (err) {
     res.status(400).send("Error:" + err.message);
   }
@@ -53,7 +61,7 @@ authRouter.post("/login", async (req, res) => {
         expires: new Date(Date.now() + 24 * 360000),
       });
 
-      res.send("user loggedIn successfully ");
+      res.send({ user });
     } else {
       throw new Error("Invalid Credentials");
     }
@@ -62,4 +70,11 @@ authRouter.post("/login", async (req, res) => {
   }
 });
 
-module.exports = authRouter ;
+authRouter.post("/logout", async (req, res) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+  });
+  res.send("logged out successfully !!!");
+});
+
+module.exports = authRouter;

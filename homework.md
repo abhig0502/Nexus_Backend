@@ -91,3 +91,41 @@ this syntax is absolutely fine wrapping any of the response handler or all the r
 -Create routes folder for managing auth,profile,request routers
 -Create authRouter,ProfileRouter,requestRouter
 -Import these routes in app.js
+
+
+-Create post logout api  
+-Create patch/profile/edit
+-Create patchprofile/password api=>forgot password api
+-Make you validate all data in every patch,post apis
+
+-Create connection Request Schema
+-Send connection request api
+-Proper validation of data
+-Think about all corner cases
+-$or and $and query in mongoose
+-Schema.pre("save") function
+-Read more about indexes in MongoDB
+-Why do we need indexes in DB?
+-What are the pros and cons of creating index ?
+-Read this article about compound indexes-on mongodb official website
+
+-Write code with proper validations for /request/review/:status/:requestId
+-Thought process -POST vs GET
+-Read about ref and populate 
+-Create GET /user/requests/reveived with all the checks
+-Create GET GET /users/connections
+
+-Logic for GET /feed api
+-Explore the $nin ,$and ,$ne and other query operators
+
+NOTES:
+
+/feed?page=1&limit=10 => 1-10 => .skip(0) & .limit(10)
+
+/feed?page=2&limit=10 => 11-20 => .skip(10) & .limit(10)
+
+/feed?page=3&limit=10 => 21-30 => .skip(20) & .limit(10)
+
+/feed?page=4&limit=10 => 31-40 => .skip(30) & .limit(10)
+
+skip=(page-1)*limit;
