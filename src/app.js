@@ -82,6 +82,7 @@ app.use(cookieParser());
 // });
 // --------------
 
+require("dotenv").config();
 const authRouter = require("./routes/auth.js");
 const profileRouter = require("./routes/profile.js");
 const requestRouter = require("./routes/request.js");
@@ -231,7 +232,7 @@ connectDB()
   .then(() => {
     console.log("Database connection established!!");
 
-    app.listen(7777, () => {
+    app.listen(process.env.PORT, () => {
       console.log("server is successfully listening to port 7777...");
     });
   })

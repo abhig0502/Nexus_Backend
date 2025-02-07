@@ -33,8 +33,11 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   await mongoose.connect(
-    "mongodb+srv://abhinvgupta92:BZiNWYSUBA40H69A@devtindercluster.fdzwq.mongodb.net/devTinder"  
-    
+  
+    process.env.DB_CONNECTION_SECRET 
+     
+  );
+  console.log(    process.env.DB_CONNECTION_SECRET 
   );  
 };  
 
